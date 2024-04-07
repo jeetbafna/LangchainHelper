@@ -18,5 +18,6 @@ uvicorn = "*"
 streamlit = "*"
 streamlit-chat = "*"
 tqdm = "*"
+lock = "*"
 
 [dev-packages]
