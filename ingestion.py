@@ -5,12 +5,13 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Pinecone as PineconeLangChain
 from pinecone import Pinecone
 
-pc = Pinecone(
-    api_key = os.environ.get("PINECONE_API_KEY")
-)
+pc = Pinecone(api_key=os.environ.get("PINECONE_API_KEY"))
+
 
 def ingest_docs() -> None:
-    loader = ReadTheDocsLoader(path="../langchain-docs/api.python.langchain.com/en/latest")
+    loader = ReadTheDocsLoader(
+        path="../langchain-docs/api.python.langchain.com/en/latest"
+    )
     raw_documents = loader.load()
 
     print(f"loaded {len(raw_documents)} documents")
@@ -31,7 +32,10 @@ def ingest_docs() -> None:
     print(f"Going to insert {len(documents)} to Pinecone")
 
     embeddings = OpenAIEmbeddings()
-    PineconeLangChain.from_documents(documents=documents, embeddings=embeddings, index_name="langchain-doc-index")
+    PineconeLangChain.from_documents(
+        documents=documents, embeddings=embeddings, index_name="langchain-doc-index"
+    )
+
 
 if __name__ == "__main__":
     ingest_docs()
