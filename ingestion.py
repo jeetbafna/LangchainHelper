@@ -4,6 +4,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Pinecone as PineconeLangChain
 from pinecone import Pinecone
+from consts import INDEX_NAME
 
 pc = Pinecone(api_key=os.environ.get("PINECONE_API_KEY"))
 
@@ -33,7 +34,7 @@ def ingest_docs() -> None:
 
     embeddings = OpenAIEmbeddings()
     PineconeLangChain.from_documents(
-        documents=documents, embeddings=embeddings, index_name="langchain-doc-index"
+        documents=documents, embeddings=embeddings, index_name=INDEX_NAME
     )
 
 
