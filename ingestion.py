@@ -34,7 +34,7 @@ def ingest_docs() -> None:
 
     embeddings = OpenAIEmbeddings()
     PineconeLangChain.from_documents(
-        documents=documents, embeddings=embeddings, index_name=INDEX_NAME
+        documents=documents, embedding=embeddings, index_name=INDEX_NAME
     )
 
 
