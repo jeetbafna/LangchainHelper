@@ -19,5 +19,6 @@ streamlit = "*"
 streamlit-chat = "*"
 tqdm = "*"
 lock = "*"
+python-dotenv = "*"
 
 [dev-packages]

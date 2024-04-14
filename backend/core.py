@@ -1,12 +1,12 @@
 import os
 from typing import Any
-
 from langchain.chains import RetrievalQA
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain_community.chat_models.openai import ChatOpenAI
 from langchain_community.vectorstores import Pinecone as PineconeLangChain
 from pinecone import Pinecone
 from consts import INDEX_NAME
+
 
 pc = Pinecone(api_key=os.environ.get("PINECONE_API_KEY"))
 
