@@ -40,12 +40,12 @@ if prompt:
         )
 
         formatted_response = (
-            f"{generated_response['result']} \n\n {create_sources_string(sources)}"
+            f"{generated_response['answer']} \n\n {create_sources_string(sources)}"
         )
 
         st.session_state["user_prompt_history"].append(prompt)
         st.session_state["chat_answers_history"].append(formatted_response)
-        st.session_state["chat_history"].append(prompt, generated_response["result"])
+        st.session_state["chat_history"].append((prompt, generated_response["answer"]))
 
 if st.session_state["chat_answers_history"]:
     for generated_response, user_query in zip(
